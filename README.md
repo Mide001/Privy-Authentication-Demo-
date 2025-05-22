@@ -48,3 +48,42 @@ export default function RootLayout({
   )
 }
 ```
+
+### 2. Create Login Page
+
+```tsx
+// src/app/page.tsx
+"use client";
+
+import { usePrivy } from "@privy-io/react-auth";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+
+export default function Home() {
+  const { login, authenticated, ready } = usePrivy();
+  const router = useRouter();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (ready && authenticated) {
+      router.push("/dashboard");
+    }
+  }, [ready, authenticated, router]);
+
+  if (!mounted || !ready) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <main>
+      <button onClick={login}>
+        Sign in with Email or Wallet
+      </button>
+    </main>
+  );
+}
+```
