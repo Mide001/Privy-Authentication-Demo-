@@ -137,3 +137,45 @@ export default function Dashboard() {
   );
 }
 ```
+
+## Key Concepts
+
+### Authentication State
+Use the `usePrivy` hook to access authentication state and methods:
+```tsx
+const { login, logout, authenticated, ready, user } = usePrivy();
+```
+
+### Protected Routes
+Protect routes by checking authentication status and redirecting:
+```tsx
+useEffect(() => {
+  if (ready && !authenticated) {
+    router.push('/');
+  }
+}, [ready, authenticated, router]);
+```
+
+### User Information
+Access user data through the `user` object:
+```tsx
+// Email
+user?.email?.address
+
+// Wallet
+user?.wallet?.address
+user?.wallet?.walletClientType
+```
+
+## Best Practices
+
+1. **Client Components**: Use "use client" directive for components that use Privy hooks
+2. **Loading States**: Always check `ready` state before rendering
+3. **Hydration**: Use `suppressHydrationWarning` to prevent hydration warnings
+4. **Error Handling**: Implement proper error handling for authentication failures
+
+## Resources
+
+- [Privy Documentation](https://docs.privy.io/)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [React Documentation](https://react.dev/)
