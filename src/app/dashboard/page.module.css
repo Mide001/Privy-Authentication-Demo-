@@ -1,0 +1,186 @@
+.container {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+.nav {
+  background-color: white;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.navContent {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .navContent {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navContent {
+    padding: 0 2rem;
+  }
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  height: 4rem;
+}
+
+.navTitle {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+}
+
+.logoutButton {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.logoutButton:hover {
+  color: #111827;
+}
+
+.main {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .main {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    padding: 1.5rem 2rem;
+  }
+}
+
+.content {
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .content {
+    padding: 1.5rem;
+  }
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  padding: 1.5rem;
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.userInfo {
+  color: #4b5563;
+}
+
+.walletSection {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.5rem;
+}
+
+.walletTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.walletContainer {
+  background-color: #f3f4f6;
+  border-radius: 0.375rem;
+  padding: 1rem;
+}
+
+.walletInfo {
+  margin-bottom: 1rem;
+}
+
+.walletInfo p {
+  color: #4b5563;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.walletActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.walletButton {
+  padding: 0.5rem 1rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.walletButton:hover {
+  background-color: #1d4ed8;
+}
+
+.loadingContainer {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  z-index: 50;
+}
+
+.spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 2px solid #3b82f6;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+} 
