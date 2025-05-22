@@ -87,3 +87,53 @@ export default function Home() {
   );
 }
 ```
+
+### 3. Create Protected Dashboard
+
+```tsx
+// src/app/dashboard/page.tsx
+"use client";
+
+import { usePrivy } from "@privy-io/react-auth";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
+export default function Dashboard() {
+  const { authenticated, ready, user, logout } = usePrivy();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (ready && !authenticated) {
+      router.push('/');
+    }
+  }, [ready, authenticated, router]);
+
+  if (!ready || !authenticated) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
+      <nav>
+        <h1>Dashboard</h1>
+        <button onClick={logout}>Sign Out</button>
+      </nav>
+
+      <main>
+        <div>
+          <h2>Welcome to your Dashboard</h2>
+          <p>Signed in as: {user?.email?.address || user?.wallet?.address}</p>
+          
+          {user?.wallet && (
+            <div>
+              <h3>Your Wallet</h3>
+              <p>Address: {user.wallet.address}</p>
+              <p>Type: {user.wallet.walletClientType}</p>
+            </div>
+          )}
+        </div>
+      </main>
+    </div>
+  );
+}
+```
